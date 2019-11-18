@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.contrib.auth.models import Species
+from BugBytes.models import Species, Com_Names, Dist_Point
 from rest_framework import viewsets
-from BugBytes.serializers import SpeciesSerializer
+from BugBytes.serializers import SpeciesSerializer, Com_NamesSerializer, Dist_PointSerializer
 
 # Create your views here.
 class SpeciesViewSet(viewsets.ModelViewSet):
@@ -15,4 +15,3 @@ class Com_NamesViewSet(viewsets.ModelViewSet):
 class Dist_PointViewSet(viewsets.ModelViewSet):
     queryset = Dist_Point.objects.all()
     serializer_class = Dist_PointSerializer
-    

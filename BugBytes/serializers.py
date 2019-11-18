@@ -1,4 +1,4 @@
-from django.contrib.auth.models import Species
+from BugBytes.models import Species, Com_Names, Dist_Point
 from rest_framework import serializers
 
 class SpeciesSerializer(serializers.ModelSerializer):
