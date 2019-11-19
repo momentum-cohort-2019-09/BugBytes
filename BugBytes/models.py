@@ -10,6 +10,7 @@ class Species(models.Model):
     genus = models.CharField(max_length=150)
     size = models.CharField(max_length=150)
     colors = models.CharField(max_length=150)
+    avatar = models.ImageField(blank=True, upload_to='images/')
 
     def __str__(self):
         return self.tax_name

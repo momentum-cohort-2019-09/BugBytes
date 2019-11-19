@@ -14,9 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
 from django.urls import include, path
 from rest_framework import routers
 from BugBytes import views
+from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 router.register(r'species', views.SpeciesViewSet)
@@ -27,4 +29,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('bugbytes/<int:pk>/view_species', views.view_species, name='view_species'),
 ]
+
+if settings.DEBUG: # new
+   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
