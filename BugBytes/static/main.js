@@ -26,6 +26,10 @@ let species = document.querySelector('#species')
 let size = document.querySelector('#size')
 let colors = document.querySelector('#colors')
 let button = document.querySelector('#grabber')
+let com_names = document.querySelector('#com_names')
+let long = document.querySelector('#long')
+let lat = document.querySelector("#lat")
+
 button.addEventListener('click', function() {
     fetch('/api/species/1', {
             method: 'GET',
@@ -37,12 +41,40 @@ button.addEventListener('click', function() {
             },
         }).then(response => response.json())
         .then(data => {
-            console.log(data.family)
             avatar.innerHTML = `<img src="${data.avatar}" alt="${data.tax_name}">`
             family.innerHTML = `Family: ${data.family}`
             genus.innerHTML = `Genus: ${data.genus}`
             species.innerHTML = `Species: ${data.tax_name}`
             size.innerHTML = `Size: ${data.size}`
             colors.innerHTML = `Colors: ${data.colors}`
+        })
+    fetch('/api/com_names/2', {
+            method: 'GET',
+            credentials: 'same-origin',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Accept': "application/json",
+                'Content-Type': "applicaton/json"
+            },
+        }).then(response => response.json())
+        .then(data => {
+            console.log(data.names)
+            com_names.innerHTML = `Common Names: ${data.names}`
+        })
+    fetch('/api/dist_point/2', {
+            method: 'GET',
+            credentials: 'same-origin',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Accept': "application/json",
+                'Content-Type': "applicaton/json"
+            },
+        }).then(response => response.json())
+        .then(data => {
+            console.log(data.longitude)
+            console.log(data.latitude)
+
+            long.innerHTML = `Longitude: ${data.longitude}`
+            lat.innerHTML = `Latitude: ${data.latitude}`
         })
 })
