@@ -20,8 +20,3 @@ class Com_Names(models.Model):
     species = models.ForeignKey(to='Species', related_name='com_name', on_delete=models.CASCADE)
     names = models.CharField(max_length=150)
 
-
-class Dist_Point(models.Model):
-    species = models.ForeignKey(to='Species', related_name='dist_point', on_delete=models.CASCADE)
-    longitude = models.FloatField()
-    latitude = models.FloatField()
