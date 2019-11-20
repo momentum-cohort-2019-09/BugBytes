@@ -15,7 +15,7 @@ function getCookie(name) {
 }
 var csrftoken = getCookie('csrftoken');
 
-let avatar = document.querySelector('#avatar')
+// let avatar = document.querySelector('#avatar')
 let kingdom = document.querySelector('#kingdom')
 let phylum = document.querySelector('#phylum')
 let bug_class = document.querySelector('#class')
@@ -39,14 +39,14 @@ button.addEventListener('click', function() {
             },
         }).then(response => response.json())
         .then(data => {
-            avatar.innerHTML = `<img src="${data.avatar}" alt="${data.tax_name}">`
+            // avatar.innerHTML = `<img src="${data.avatar}" alt="${data.tax_name}">`
             family.innerHTML = `Family: ${data.family}`
             genus.innerHTML = `Genus: ${data.genus}`
             species.innerHTML = `Species: ${data.tax_name}`
             size.innerHTML = `Size: ${data.size}`
             colors.innerHTML = `Colors: ${data.colors}`
         })
-    fetch('/api/com_names/2', {
+    fetch('/api/com_names/1', {
             method: 'GET',
             credentials: 'same-origin',
             headers: {

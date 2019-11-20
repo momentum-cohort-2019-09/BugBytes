@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from BugBytes.models import Species, Com_Names
+from BugBytes.models import Species, Com_Names, Photos
 from rest_framework import viewsets
-from BugBytes.serializers import SpeciesSerializer, Com_NamesSerializer
+from BugBytes.serializers import SpeciesSerializer, Com_NamesSerializer, PhotosSerializer
 
 # Create your views here.
 
@@ -13,6 +13,10 @@ class SpeciesViewSet(viewsets.ModelViewSet):
 class Com_NamesViewSet(viewsets.ModelViewSet):
     queryset = Com_Names.objects.all()
     serializer_class = Com_NamesSerializer
+
+class PhotosViewSet(viewsets.ModelViewSet):
+    queryset = Photos.objects.all()
+    serializer_class = PhotosSerializer
 
 
 # Other

@@ -10,7 +10,7 @@ class Species(models.Model):
     genus = models.CharField(max_length=150)
     size = models.CharField(max_length=150)
     colors = models.CharField(max_length=150)
-    avatar = models.ImageField(blank=True, upload_to='images/')
+    desc = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.tax_name
@@ -18,5 +18,10 @@ class Species(models.Model):
 
 class Com_Names(models.Model):
     species = models.ForeignKey(to='Species', related_name='com_name', on_delete=models.CASCADE)
-    names = models.CharField(max_length=150)
+    name = models.CharField(max_length=150)
+
+
+class Photos(models.Model):
+    species = models.ForeignKey(to='Species', related_name='photos', on_delete=models.CASCADE)
+    image = models.ImageField(blank=True, upload_to='images/')
 
