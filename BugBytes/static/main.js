@@ -15,7 +15,7 @@ function getCookie(name) {
 }
 var csrftoken = getCookie('csrftoken');
 
-// let avatar = document.querySelector('#avatar')
+let image = document.querySelector('#image')
 let kingdom = document.querySelector('#kingdom')
 let phylum = document.querySelector('#phylum')
 let bug_class = document.querySelector('#class')
@@ -27,9 +27,10 @@ let size = document.querySelector('#size')
 let colors = document.querySelector('#colors')
 let button = document.querySelector('#grabber')
 let com_names = document.querySelector('#com_names')
+let desc = document.querySelector('#desc')
 
 button.addEventListener('click', function() {
-    fetch('/api/species/1', {
+    fetch('/api/species/3/', {
             method: 'GET',
             credentials: 'same-origin',
             headers: {
@@ -45,8 +46,9 @@ button.addEventListener('click', function() {
             species.innerHTML = `Species: ${data.tax_name}`
             size.innerHTML = `Size: ${data.size}`
             colors.innerHTML = `Colors: ${data.colors}`
+            desc.innerHTML = `Description: ${data.desc}`
         })
-    fetch('/api/com_names/1', {
+    fetch('/api/com_names/8', {
             method: 'GET',
             credentials: 'same-origin',
             headers: {
@@ -56,7 +58,20 @@ button.addEventListener('click', function() {
             },
         }).then(response => response.json())
         .then(data => {
-            console.log(data.names)
-            com_names.innerHTML = `Common Names: ${data.names}`
+            console.log(data.name)
+            com_names.innerHTML = `Common Names: ${data.name}`
+        })
+    fetch('/api/photos/26', {
+            method: 'GET',
+            credentials: 'same-origin',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Accept': "application/json",
+                'Content-Type': "applicaton/json"
+            },
+        }).then(response => response.json())
+        .then(data => {
+            console.log(data.image)
+            image.innerHTML = `<img src="${data.image}" alt="${data.tax_name}">`
         })
 })

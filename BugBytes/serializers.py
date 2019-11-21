@@ -10,7 +10,7 @@ class SpeciesSerializer(serializers.ModelSerializer):
 class Com_NamesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Com_Names
-        fields = ['species', 'names', 'id']
+        fields = ['species', 'name', 'id']
 
 
 class PhotosSerializer(serializers.ModelSerializer):
