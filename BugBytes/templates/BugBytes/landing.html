@@ -1,5 +1,26 @@
 {% extends "base.html" %} {% load static %} {% block content %}
-<div class="dropzone" id="myDropzone"></div>
+<div class="header">
+    <h1>BugBytes</h1>
+</div>
+
+<div class="container">
+    <div>
+        <div class="dropzone" id="myDropzone"></div>
+        <div class="row">
+            <div class="input_box">
+                <label for=""></label>
+                <input type="file" id="myFile" size="50" onchange="uploadImage(event)">
+                </label>
+            </div>
+        </div>
+    </div>
+    <div id="identify">
+        <button id="identify">Identify</button>
+    </div>
+
+</div>
+
+
 <script src="https://unpkg.com/dropzone"></script>
 <script src="https://unpkg.com/cropperjs"></script>
 
@@ -13,6 +34,7 @@
 
             // Create the image editor overlay
             var editor = document.createElement('div');
+            editor.setAttribute('id', 'insectPic')
             editor.style.position = 'fixed';
             editor.style.left = 0;
             editor.style.right = 0;
