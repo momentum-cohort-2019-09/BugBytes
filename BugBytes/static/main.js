@@ -1,26 +1,32 @@
-insectImg = document.getElementById('insectPic');
-imgData = getBase64Image(insectImg);
-localStorage.setItem('imgData', imgData);
+// Image uploading
 
-function getBase64Image() {
-    let canvas = document.createElement('canvas');
-    canvas.width = img.width;
-    canvas.height = img.height;
+// var images = [];
+// dropzone.getQueuedFiles().forEach(function(file) {
+//     let image = {
+//         dataURL: file.dataURL,
+//         name: file.name,
+//         type: file.type,
+//         size: file.size,
+//     };
+//     images.push(image);
+// });
+// sessionStorage.setItem("images", JSON.stringify(images));
 
-    let ctx = canvas.getContext('2d');
-    ctx.drawImage(img, 0, 0);
-
-    let dataURL = canvas.toDataURL('image/png');
-
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-}
-
-let dataImage = localStorage.getItem('imgData');
-insectImg = document.getElementById('user-pic');
-insectImg.src = "data:image/png;base64," + dataImage;
+// var images = JSON.parse(sessionStorage.getItem('images'));
+// images.forEach(function(image) {
+//     dropzone.files.push(image);
+//     dropzone.emit("addedfile", image);
+//     dropzone.emit("thumbnail", image, image.dataURL);
+//     dropzone.emit("complete", image);
+// });
+// dropzone.options.maxFiles = dropzone.options.maxFiles - images.length;
+// console.log(sessionStorage)
 
 
 
+
+
+// Bug info rendering
 
 function getCookie(name) {
     var cookieValue = null;
@@ -53,53 +59,55 @@ let button = document.querySelector('#grabber')
 let com_names = document.querySelector('#com_names')
 let desc = document.querySelector('#desc')
 
-button.addEventListener('click', function() {
-    fetch('/api/species/3/', {
-            method: 'GET',
-            credentials: 'same-origin',
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-                'Accept': "application/json",
-                'Content-Type': "applicaton/json"
-            },
-        }).then(response => response.json())
-        .then(data => {
-            // avatar.innerHTML = `<img src="${data.avatar}" alt="${data.tax_name}">`
-            family.innerHTML = `Family: ${data.family}`
-            genus.innerHTML = `Genus: ${data.genus}`
-            species.innerHTML = `Species: ${data.tax_name}`
-            size.innerHTML = `Size: ${data.size}`
-            colors.innerHTML = `Colors: ${data.colors}`
-            desc.innerHTML = `Description: ${data.desc}`
-        })
-    fetch('/api/com_names/8', {
-            method: 'GET',
-            credentials: 'same-origin',
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-                'Accept': "application/json",
-                'Content-Type': "applicaton/json"
-            },
-        }).then(response => response.json())
-        .then(data => {
-            console.log(data.name)
-            com_names.innerHTML = `Common Names: ${data.name}`
-        })
-    fetch('/api/photos/26', {
-            method: 'GET',
-            credentials: 'same-origin',
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-                'Accept': "application/json",
-                'Content-Type': "applicaton/json"
-            },
-        }).then(response => response.json())
-        .then(data => {
-            console.log(data.image)
-            image.innerHTML = `<img src="${data.image}" alt="${data.tax_name}">`
-        })
-})
 
+if (button) {
+    button.addEventListener('click', function() {
+        fetch('/api/species/3/', {
+                method: 'GET',
+                credentials: 'same-origin',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Accept': "application/json",
+                    'Content-Type': "applicaton/json"
+                },
+            }).then(response => response.json())
+            .then(data => {
+                // avatar.innerHTML = `<img src="${data.avatar}" alt="${data.tax_name}">`
+                family.innerHTML = `Family: ${data.family}`
+                genus.innerHTML = `Genus: ${data.genus}`
+                species.innerHTML = `Species: ${data.tax_name}`
+                size.innerHTML = `Size: ${data.size}`
+                colors.innerHTML = `Colors: ${data.colors}`
+                desc.innerHTML = `Description: ${data.desc}`
+            })
+        fetch('/api/com_names/8', {
+                method: 'GET',
+                credentials: 'same-origin',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Accept': "application/json",
+                    'Content-Type': "applicaton/json"
+                },
+            }).then(response => response.json())
+            .then(data => {
+                console.log(data.name)
+                com_names.innerHTML = `Common Names: ${data.name}`
+            })
+        fetch('/api/photos/26', {
+                method: 'GET',
+                credentials: 'same-origin',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Accept': "application/json",
+                    'Content-Type': "applicaton/json"
+                },
+            }).then(response => response.json())
+            .then(data => {
+                console.log(data.image)
+                image.innerHTML = `<img src="${data.image}" alt="${data.tax_name}">`
+            })
+    })
+}
 
 // Image uploading
 
@@ -115,3 +123,24 @@ button.addEventListener('click', function() {
 //     });
 //     reader.readAsDataURL(event.target.files[0]);
 // }
+
+// insectImg = document.getElementById('insectPic');
+// imgData = getBase64Image(insectImg);
+// localStorage.setItem('imgData', imgData);
+
+// function getBase64Image() {
+//     let canvas = document.createElement('canvas');
+//     canvas.width = img.width;
+//     canvas.height = img.height;
+
+//     let ctx = canvas.getContext('2d');
+//     ctx.drawImage(img, 0, 0);
+
+//     let dataURL = canvas.toDataURL('image/png');
+
+//     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+// }
+
+// let dataImage = localStorage.getItem('imgData');
+// insectImg = document.getElementById('user-pic');
+// insectImg.src = "data:image/png;base64," + dataImage;

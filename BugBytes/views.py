@@ -22,7 +22,7 @@ class PhotosViewSet(viewsets.ModelViewSet):
 
 # Other
 
-def view_species(request, pk):
+def view_species(request, tensorflow_id):
     return render(request, 'BugBytes/view_species.html')
 
 def landing(request):

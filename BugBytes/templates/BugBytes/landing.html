@@ -8,8 +8,8 @@
         <div class="dropzone" id="myDropzone"></div>
         <div class="row">
             <div class="input_box">
-                <label for=""></label>
-                <input type="file" id="myFile" size="50" onchange="uploadImage(event)">
+                <label for="">
+                <!-- <input type="file" id="myFile" size="50" onchange="uploadImage(event)"> -->
                 </label>
             </div>
         </div>
@@ -75,6 +75,28 @@
                             myDropZone.emit('thumbnail', file, dataURL);
                             // Return the file to Dropzone
                             done(blob);
+
+                            var images = [];
+                            myDropZone.getQueuedFiles().forEach(function(file) {
+                                let image = {
+                                    dataURL: file.dataURL,
+                                    name: file.name,
+                                    type: file.type,
+                                    size: file.size,
+                                };
+                                images.push(image);
+                            });
+                            sessionStorage.setItem("images", JSON.stringify(images));
+
+                            var images = JSON.parse(sessionStorage.getItem('images'));
+                            images.forEach(function(image) {
+                                dropzone.files.push(image);
+                                dropzone.emit("addedfile", image);
+                                dropzone.emit("thumbnail", image, image.dataURL);
+                                dropzone.emit("complete", image);
+                            });
+                            myDropZone.options.maxFiles = myDropZone.options.maxFiles - images.length;
+                            console.log(sessionStorage)
                         });
                     done(blob);
                 });
