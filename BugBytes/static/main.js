@@ -1,3 +1,4 @@
+
 insectImg = document.getElementById('insectPic');
 if (insectImg) {
     imgData = getBase64Image(insectImg);
@@ -6,15 +7,29 @@ if (insectImg) {
 
 
 
-function getBase64Image() {
-    let canvas = document.createElement('canvas');
-    canvas.width = img.width;
-    canvas.height = img.height;
+// var images = [];
+// dropzone.getQueuedFiles().forEach(function(file) {
+//     let image = {
+//         dataURL: file.dataURL,
+//         name: file.name,
+//         type: file.type,
+//         size: file.size,
+//     };
+//     images.push(image);
+// });
+// sessionStorage.setItem("images", JSON.stringify(images));
 
-    let ctx = canvas.getContext('2d');
-    ctx.drawImage(img, 0, 0);
+// var images = JSON.parse(sessionStorage.getItem('images'));
+// images.forEach(function(image) {
+//     dropzone.files.push(image);
+//     dropzone.emit("addedfile", image);
+//     dropzone.emit("thumbnail", image, image.dataURL);
+//     dropzone.emit("complete", image);
+// });
+// dropzone.options.maxFiles = dropzone.options.maxFiles - images.length;
+// console.log(sessionStorage)
 
-    let dataURL = canvas.toDataURL('image/png');
+
 
     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
@@ -22,6 +37,7 @@ function getBase64Image() {
 let dataImage = localStorage.getItem('imgData');
 insectImg = document.getElementById('user-pic');
 // insectImg.src = "data:image/png;base64," + dataImage;
+
 
 
 let identify = document.querySelector('.identify')
@@ -33,6 +49,7 @@ if (identify) {
     })
 }
 
+// Bug info rendering
 
 function getCookie(name) {
     var cookieValue = null;
@@ -65,17 +82,18 @@ let button = document.querySelector('#grabber')
 let com_names = document.querySelector('#com_names')
 let desc = document.querySelector('#desc')
 
+
 if (button) {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function() {
         fetch('/api/species/3/', {
-            method: 'GET',
-            credentials: 'same-origin',
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-                'Accept': "application/json",
-                'Content-Type': "applicaton/json"
-            },
-        }).then(response => response.json())
+                method: 'GET',
+                credentials: 'same-origin',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Accept': "application/json",
+                    'Content-Type': "applicaton/json"
+                },
+            }).then(response => response.json())
             .then(data => {
                 // avatar.innerHTML = `<img src="${data.avatar}" alt="${data.tax_name}">`
                 family.innerHTML = `Family: ${data.family}`
@@ -143,5 +161,6 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
 }
 showSlides(slideIndex);
+
 
 window.setInterval(plusSlides, 5000)

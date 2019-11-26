@@ -26,13 +26,16 @@ class PhotosViewSet(viewsets.ModelViewSet):
 
 # Other
 
+
 def view_species(request, tensorflow_id):
+
     # Change once the tensorflow_id is set up
     species = Species.objects.get(tensorflow_id=tensorflow_id)
     photos = Photos.objects.filter(species=species)
     com_names = Com_Names.objects.filter(species=species)
 
     return render(request, 'BugBytes/view_species.html', {'species': species, 'photos': photos, 'com_names': com_names})
+
 
 
 def landing(request):
