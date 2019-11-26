@@ -1,6 +1,6 @@
 * {
-    /* margin-left: 3vw; */
-    /* margin-left: 1.5vw; */
+    padding: 0;
+    margin: 0;
 }
 
 body {
@@ -34,16 +34,39 @@ span {
 }
 
 .header {
-    padding: .25vw;
+    padding: 1.5vw;
     background: #95a472;
     color: white;
-    font-size: 1.5vw;
+    font-size: 2vw;
 }
 
-button {
+button.identify {
     width: 200px;
     height: 200px;
     font-size: 35px;
     margin-left: 20vw;
     margin-top: 10vw;
+}
+
+.upload {
+    margin-left: 5.5vw;
+}
+
+.dz-image {
+    width: 300px;
+    height: 300px;
+}
+
+.dropzone .dz-preview .dz-image {
+    width: 300px;
+    height: 300px;
+    margin-top: 2vw;
+}
+
+.dropzone .dz-preview .dz-image img {
+    height: 300px;
+}
+
+div.dz-default.dz-message {
+    margin-top: 150px;
 }
