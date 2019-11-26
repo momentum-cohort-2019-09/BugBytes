@@ -1,3 +1,27 @@
+insectImg = document.getElementById('insectPic');
+imgData = getBase64Image(insectImg);
+localStorage.setItem('imgData', imgData);
+
+function getBase64Image() {
+    let canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    let ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+
+    let dataURL = canvas.toDataURL('image/png');
+
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+}
+
+let dataImage = localStorage.getItem('imgData');
+insectImg = document.getElementById('user-pic');
+insectImg.src = "data:image/png;base64," + dataImage;
+
+
+
+
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {

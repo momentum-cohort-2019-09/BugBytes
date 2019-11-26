@@ -11,6 +11,7 @@ class Species(models.Model):
     size = models.CharField(max_length=150)
     colors = models.CharField(max_length=150)
     desc = models.TextField(blank=True, null=True)
+    tensorflow_id = models.IntegerField(blank=False, null=False, default=0)
 
     def __str__(self):
         return self.tax_name

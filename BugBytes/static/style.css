@@ -76,3 +76,70 @@ img {
 	width: 50%;
 	border: 1px pink solid;
 }
+
+body {
+	background-color: #c8e087;
+}
+
+h1 {
+	margin-left: 4.5vw;
+}
+
+.dropzone.dz-clickable {
+	width: 30vw;
+	height: 30vw;
+	text-align: center;
+	align-items: center;
+	margin-top: 8vw;
+}
+
+span {
+	text-align: center;
+	align-items: center;
+}
+
+/* #myDropzone {
+    min-width: 50vw;
+} */
+
+.container {
+	display: flex;
+}
+
+.header {
+	padding: 1.5vw;
+	background: #95a472;
+	color: white;
+	font-size: 2vw;
+}
+
+button.identify {
+	width: 200px;
+	height: 200px;
+	font-size: 35px;
+	margin-left: 20vw;
+	margin-top: 10vw;
+}
+
+.upload {
+	margin-left: 5.5vw;
+}
+
+.dz-image {
+	width: 300px;
+	height: 300px;
+}
+
+.dropzone .dz-preview .dz-image {
+	width: 300px;
+	height: 300px;
+	margin-top: 2vw;
+}
+
+.dropzone .dz-preview .dz-image img {
+	height: 300px;
+}
+
+div.dz-default.dz-message {
+	margin-top: 150px;
+}
