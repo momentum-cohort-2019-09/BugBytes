@@ -3,67 +3,94 @@
 {% block content %}
 
 <!-- This will be inserted via the localStorage -->
-<div>
-    <div class="guesses-container">
-        <!-- Chart.js thingy -->
-        <a href="#" alt="this currently goes nowhere">Other Guesses</a>
+<div class="species-main-container">
+    <div class="species-hierarchy-container">
+        <div class="guesses-container">
+            <!-- Chart.js thingy -->
+            <a href="#" alt="this currently goes nowhere">Other Guesses</a>
+        </div>
+
+        <div class="species-hierarchy">
+            <div class="classification test">
+                <p id="kingdom">Kingdom:</p>
+                <p>Animalia</p>
+            </div>
+            <div class="classification">
+            <p id="Phylum">Phylum: Arthropoda</p>
+            <p></p>
+            </div>
+            <div class="classification">
+            <p id="class">Class: Insecta</p>
+            <p></p>
+            </div>
+            <div class="classification">
+            <p id="order">Order: Orthoptera</p>
+            <p></p>
+            </div>
+            <div class="classification">
+            <p id="family">Family: {{species.family}}</p>
+            <p></p>
+            </div>
+            <div class="classification">
+            <p id="genus">Genus: {{species.genus}}</p>
+            <p></p>
+            </div>
+            <div class="classification">
+            <p id="species">Species: {{species.tax_name}}</p>
+            <p></p>
+            </div>
+            <!-- The specie specific information can be viewed in a landscape form rather than column
+                    Can be confusing for viewing audience as the flow would seem off -->
+        </div>
     </div>
 
-    <div class="species-hierarchy">
-        <p id="kingdom">Kingdom: Animalia</p>
-        <p id="Phylum">Phylum: Arthropoda</p>
-        <p id="class">Class: Insecta</p>
-        <p id="order">Order: Orthoptera</p>
-        <p id="family" placeholder="Family"></p>
-        <p id="genus" placeholder="Genus"></p>
-        <p id="species" placeholder="Species"></p>
-        <!-- The specie specific information can be viewed in a landscape form rather than column
-                Can be confusing for viewing audience as the flow would seem off -->
-        <div>
-            <p id="size" placeholder="Size">Size: {{species.size}}</p>
-            <p id="colors" placeholder="Colors">Colors: {{species.colors}}</p>
-            <p id="desc" placeholder="Description">Description: {{species.desc}}</p>
-            <p id="com_names" placeholder="Common Names">Common Names: {% for common in species.com_names_set %} {{common}}
-                {% endfor %}</p>
-        </div>
-</div>
-</div>
+    <div class="image-data-container">
+        <div class="images-container">
+            <div class="user-image-container">
+                <img id="user-pic" src="https://images.unsplash.com/photo-1485254767195-60704c46702e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+                <p class="info">Your Uploaded Image</p>
+            </div>
 
-<div class="image-data-container">
-    <div class="images-container">
-        <div>
-            <img id="user-pic" src="">
-        </div>
-
-        <!-- These photos don't work, BWAHHHH -->
-        <div class="carousel">
-            <div class="slideshow-container">
-                {% for photo in photos %}
-                <div class="slide fade">
-                    <img src="{{photo.image}}" alt="">
+            <!-- These photos don't work, BWAHHHH -->
+            <div class="carousel">
+                <div class="slideshow-container">
+                    <div class="slide fade">
+                        <img class="image" src="https://images.unsplash.com/photo-1446776899648-aa78eefe8ed0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="">
+                    </div>
+                    <div class="slide fade">
+                        <img class="image" src="https://images.unsplash.com/photo-1451186242394-2b461812025b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" alt="">
+                    </div>
+                    <!-- Below is the legit photos -->
+                    {% for photo in photos %}
+                    <div class="slide fade">
+                        <img src="{{photo.image}}" alt="{{photo.species.tax_name}}">
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
-            </div>
-            <br>
+                <br>
 
-            <div class="dots" style="text-align:center">
-                {% for photo in photos %}
-                <span style="background: url(images/rich_blue.jpg) center/cover;" class="dot" onclick="currentSlide(1)"></span>
-                <span style="background: url(images/sleepyKoala.jpg) center/cover;" class="dot" onclick="currentSlide(2)"></span>
-                <span style="background: url(images/test_size.jpg) center/cover;" class="dot" onclick="currentSlide(3)"></span>
+                <div class="dots" style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    {% for photo in photos %}
+                    <span style="background: url({{photo}}) center/cover;" class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="data-container">
+            <div class="body-features">
+                <p class="info" id="size" placeholder="Size">Size: {{species.size}}</p>
+                <p class="info" id="colors" placeholder="Colors">Colors: {{species.colors}}</p>
+            </div>
+            <p class="info" id="desc" placeholder="Description">Description: {{species.desc}}</p>
+            <div id="com_names">
+                <h4>Common Names:</h4>
+                {% for common in com_names %} 
+                <p>{{common.name}}</p>
                 {% endfor %}
             </div>
         </div>
     </div>
-    <div class="data-container">
-        <p>This is info</p>
-        <p>This is some more info</p>
-    </div>
 </div>
-
-
-
-
-
-<button id="grabber">Fetch</button> 
 {% endblock %}
