@@ -4,7 +4,7 @@ from rest_framework import serializers
 class SpeciesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Species
-        fields = ['tax_name', 'family', 'genus', 'size', 'colors', 'id', 'desc']
+        fields = ['tax_name', 'family', 'genus', 'size', 'colors', 'id', 'desc', 'tensorflow_id']
 
 
 class Com_NamesSerializer(serializers.ModelSerializer):
