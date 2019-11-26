@@ -1,4 +1,11 @@
-// Image uploading
+
+insectImg = document.getElementById('insectPic');
+if (insectImg) {
+    imgData = getBase64Image(insectImg);
+    localStorage.setItem('imgData', imgData);
+}
+
+
 
 // var images = [];
 // dropzone.getQueuedFiles().forEach(function(file) {
@@ -24,7 +31,23 @@
 
 
 
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+}
 
+let dataImage = localStorage.getItem('imgData');
+insectImg = document.getElementById('user-pic');
+// insectImg.src = "data:image/png;base64," + dataImage;
+
+
+
+let identify = document.querySelector('.identify')
+if (identify) {
+    identify.addEventListener('click', event => {
+        event.preventDefault()
+        let user_pic = document.querySelector('.dz-image').children[0].src
+        sessionStorage.setItem('user_pic', user_pic)
+    })
+}
 
 // Bug info rendering
 
@@ -60,7 +83,6 @@ let com_names = document.querySelector('#com_names')
 let desc = document.querySelector('#desc')
 
 
-
 if (button) {
     button.addEventListener('click', function() {
         fetch('/api/species/3/', {
@@ -82,27 +104,27 @@ if (button) {
                 desc.innerHTML = `Description: ${data.desc}`
             })
         fetch('/api/com_names/8', {
-                method: 'GET',
-                credentials: 'same-origin',
-                headers: {
-                    'X-CSRFToken': getCookie('csrftoken'),
-                    'Accept': "application/json",
-                    'Content-Type': "applicaton/json"
-                },
-            }).then(response => response.json())
+            method: 'GET',
+            credentials: 'same-origin',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Accept': "application/json",
+                'Content-Type': "applicaton/json"
+            },
+        }).then(response => response.json())
             .then(data => {
                 console.log(data.name)
                 com_names.innerHTML = `Common Names: ${data.name}`
             })
         fetch('/api/photos/26', {
-                method: 'GET',
-                credentials: 'same-origin',
-                headers: {
-                    'X-CSRFToken': getCookie('csrftoken'),
-                    'Accept': "application/json",
-                    'Content-Type': "applicaton/json"
-                },
-            }).then(response => response.json())
+            method: 'GET',
+            credentials: 'same-origin',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                'Accept': "application/json",
+                'Content-Type': "applicaton/json"
+            },
+        }).then(response => response.json())
             .then(data => {
                 console.log(data.image)
                 image.innerHTML = `<img src="${data.image}" alt="${data.tax_name}">`
@@ -110,8 +132,9 @@ if (button) {
     })
 }
 
+
 let slideIndex = 1;
-showSlides(slideIndex);
+
 
 // Setting a default so that it will move by itself 
 function plusSlides(n = 1) {
@@ -137,5 +160,7 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
 }
+showSlides(slideIndex);
+
 
 window.setInterval(plusSlides, 5000)
