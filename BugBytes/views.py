@@ -22,19 +22,16 @@ class Com_NamesViewSet(viewsets.ModelViewSet):
 class PhotosViewSet(viewsets.ModelViewSet):
     queryset = Photos.objects.all()
     serializer_class = PhotosSerializer
-    
+
 
 # Other
 
 def view_species(request, pk):
-<<<<<<< HEAD
     # Change once the tensorflow_id is set up
     species = Species.objects.get(pk=pk)
     photos = Photos.objects.filter(species=species)
     return render(request, 'BugBytes/view_species.html', {'species': species, 'photos': photos})
-=======
-    return render(request, 'BugBytes/view_species.html')
+
 
 def landing(request):
-  return render(request, 'BugBytes/landing.html')
->>>>>>> b8c2b44f138d29e4bb9b482a65dae31463abb786
+    return render(request, 'BugBytes/landing.html')
