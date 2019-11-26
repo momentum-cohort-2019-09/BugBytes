@@ -29,16 +29,16 @@ let button = document.querySelector('#grabber')
 let com_names = document.querySelector('#com_names')
 let desc = document.querySelector('#desc')
 
-button.addEventListener('click', function() {
+button.addEventListener('click', function () {
     fetch('/api/species/3/', {
-            method: 'GET',
-            credentials: 'same-origin',
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-                'Accept': "application/json",
-                'Content-Type': "applicaton/json"
-            },
-        }).then(response => response.json())
+        method: 'GET',
+        credentials: 'same-origin',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'Accept': "application/json",
+            'Content-Type': "applicaton/json"
+        },
+    }).then(response => response.json())
         .then(data => {
             // avatar.innerHTML = `<img src="${data.avatar}" alt="${data.tax_name}">`
             family.innerHTML = `Family: ${data.family}`
@@ -49,29 +49,61 @@ button.addEventListener('click', function() {
             desc.innerHTML = `Description: ${data.desc}`
         })
     fetch('/api/com_names/8', {
-            method: 'GET',
-            credentials: 'same-origin',
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-                'Accept': "application/json",
-                'Content-Type': "applicaton/json"
-            },
-        }).then(response => response.json())
+        method: 'GET',
+        credentials: 'same-origin',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'Accept': "application/json",
+            'Content-Type': "applicaton/json"
+        },
+    }).then(response => response.json())
         .then(data => {
             console.log(data.name)
             com_names.innerHTML = `Common Names: ${data.name}`
         })
     fetch('/api/photos/26', {
-            method: 'GET',
-            credentials: 'same-origin',
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-                'Accept': "application/json",
-                'Content-Type': "applicaton/json"
-            },
-        }).then(response => response.json())
+        method: 'GET',
+        credentials: 'same-origin',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'Accept': "application/json",
+            'Content-Type': "applicaton/json"
+        },
+    }).then(response => response.json())
         .then(data => {
             console.log(data.image)
             image.innerHTML = `<img src="${data.image}" alt="${data.tax_name}">`
         })
 })
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Setting a default so that it will move by itself 
+function plusSlides(n = 1) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+}
+
+window.setInterval(plusSlides, 5000)
+
+// Will be loaded with the page 
