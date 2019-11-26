@@ -6,13 +6,17 @@ from BugBytes.serializers import SpeciesSerializer, Com_NamesSerializer, PhotosS
 # Create your views here.
 
 # API Views
+
+
 class SpeciesViewSet(viewsets.ModelViewSet):
     queryset = Species.objects.all()
     serializer_class = SpeciesSerializer
 
+
 class Com_NamesViewSet(viewsets.ModelViewSet):
     queryset = Com_Names.objects.all()
     serializer_class = Com_NamesSerializer
+
 
 class PhotosViewSet(viewsets.ModelViewSet):
     queryset = Photos.objects.all()
@@ -22,4 +26,7 @@ class PhotosViewSet(viewsets.ModelViewSet):
 # Other
 
 def view_species(request, pk):
-    return render(request, 'BugBytes/view_species.html')
+    # Change once the tensorflow_id is set up
+    species = Species.objects.get(pk=pk)
+    photos = Photos.objects.filter(species=species)
+    return render(request, 'BugBytes/view_species.html', {'species': species, 'photos': photos})
