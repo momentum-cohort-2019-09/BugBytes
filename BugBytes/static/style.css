@@ -131,9 +131,9 @@ button.identify {
 }
 
 .dropzone .dz-preview .dz-image {
-	width: 300px;
-	height: 300px;
-	margin-top: 2vw;
+    width: 300px;
+    height: 300px;
+    margin-top: 1.5vw;
 }
 
 .dropzone .dz-preview .dz-image img {
