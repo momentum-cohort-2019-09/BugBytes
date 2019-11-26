@@ -1,42 +1,69 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %} 
+{% load static %} 
+{% block content %}
 
+<!-- This will be inserted via the localStorage -->
 <div>
-    <p id="image"></p>
-</div>
+    <div class="guesses-container">
+        <!-- Chart.js thingy -->
+        <a href="#" alt="this currently goes nowhere">Other Guesses</a>
+    </div>
 
-<div>
-    <p id="kingdom">Kingdom: Animalia</p>
+    <div class="species-hierarchy">
+        <p id="kingdom">Kingdom: Animalia</p>
+        <p id="Phylum">Phylum: Arthropoda</p>
+        <p id="class">Class: Insecta</p>
+        <p id="order">Order: Orthoptera</p>
+        <p id="family" placeholder="Family"></p>
+        <p id="genus" placeholder="Genus"></p>
+        <p id="species" placeholder="Species"></p>
+        <!-- The specie specific information can be viewed in a landscape form rather than column
+                Can be confusing for viewing audience as the flow would seem off -->
+        <div>
+            <p id="size" placeholder="Size">Size: {{species.size}}</p>
+            <p id="colors" placeholder="Colors">Colors: {{species.colors}}</p>
+            <p id="desc" placeholder="Description">Description: {{species.desc}}</p>
+            <p id="com_names" placeholder="Common Names">Common Names: {% for common in species.com_names_set %} {{common}}
+                {% endfor %}</p>
+        </div>
 </div>
-<div>
-    <p id="Phylum">Phylum: Arthropoda</p>
-</div>
-<div>
-    <p id="class">Class: Insecta</p>
-</div>
-<div>
-    <p id="order">Order: Orthoptera</p>
-</div>
-<div>
-    <p id="family"></p>
-</div>
-<div>
-    <p id="genus"></p>
-</div>
-<div>
-    <p id="species"></p>
-</div>
-<div>
-    <p id="size"></p>
-</div>
-<div>
-    <p id="colors"></p>
-</div>
-<div>
-    <p id="desc"></p>
-</div>
-<div>
-    <p id="com_names"></p>
 </div>
 
+<div class="image-data-container">
+    <div class="images-container">
+        <div>
+            <img id="user-pic" src="">
+        </div>
 
-<button id="grabber">Fetch</button> {% endblock %}
+        <!-- These photos don't work, BWAHHHH -->
+        <div class="carousel">
+            <div class="slideshow-container">
+                {% for photo in photos %}
+                <div class="slide fade">
+                    <img src="{{photo.image}}" alt="">
+                </div>
+                {% endfor %}
+            </div>
+            <br>
+
+            <div class="dots" style="text-align:center">
+                {% for photo in photos %}
+                <span style="background: url(images/rich_blue.jpg) center/cover;" class="dot" onclick="currentSlide(1)"></span>
+                <span style="background: url(images/sleepyKoala.jpg) center/cover;" class="dot" onclick="currentSlide(2)"></span>
+                <span style="background: url(images/test_size.jpg) center/cover;" class="dot" onclick="currentSlide(3)"></span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="data-container">
+        <p>This is info</p>
+        <p>This is some more info</p>
+    </div>
+</div>
+
+
+
+
+
+<button id="grabber">Fetch</button> 
+{% endblock %}

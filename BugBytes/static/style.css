@@ -1,0 +1,78 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/* ---------------- CAROUSEL START ---------------- */
+
+.slide {
+	display: none;
+}
+
+.image {
+	width: 100%;
+}
+
+img {
+	vertical-align: middle;
+}
+
+/* Slideshow container */
+.slideshow-container {
+	max-width: 1000px;
+	position: relative;
+	margin: auto;
+	z-index: -1;
+}
+
+/* The indicators */
+.dots {
+	position: relative;
+	bottom: 4rem;
+}
+
+.dot {
+	cursor: pointer;
+	height: 30px;
+	width: 30px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+	background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+/* ---------------- CAROUSEL END ---------------- */
+
+.image-data-container {
+	width: 60vw;
+	border: 1px solid black;
+}
+
+.images-container {
+	border: 1px solid black;
+}
+
+.carousel {
+	width: 50%;
+	border: 1px green solid;
+}
+
+.user-pic {
+	width: 50%;
+	border: 1px pink solid;
+}
