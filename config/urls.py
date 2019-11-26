@@ -29,9 +29,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('bugbytes/<int:tensorflow_id>/view_species', views.view_species, name='view_species'),
+    path('bugbytes/<int:tensorflow_id>/view_species',
+         views.view_species, name='view_species'),
     path('', views.landing, name='landing')
 ]
 
-if settings.DEBUG: # new
-   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:  # new
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
