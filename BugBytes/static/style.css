@@ -1,60 +1,133 @@
 * {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/* ---------------- CAROUSEL START ---------------- */
+
+.slide {
+	display: none;
+}
+
+.image {
+	width: 100%;
+}
+
+img {
+	vertical-align: middle;
+}
+
+/* Slideshow container */
+.slideshow-container {
+	max-width: 1000px;
+	position: relative;
+	margin: auto;
+	z-index: -1;
+}
+
+/* The indicators */
+.dots {
+	position: relative;
+	bottom: 4rem;
+}
+
+.dot {
+	cursor: pointer;
+	height: 30px;
+	width: 30px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+	background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+/* ---------------- CAROUSEL END ---------------- */
+
+.image-data-container {
+	width: 60vw;
+	border: 1px solid black;
+}
+
+.images-container {
+	border: 1px solid black;
+}
+
+.carousel {
+	width: 50%;
+	border: 1px green solid;
+}
+
+.user-pic {
+	width: 50%;
+	border: 1px pink solid;
 }
 
 body {
-    background-color: #c8e087;
+	background-color: #c8e087;
 }
 
 h1 {
-    margin-left: 4.5vw;
+	margin-left: 4.5vw;
 }
 
 .dropzone.dz-clickable {
-    width: 30vw;
-    height: 30vw;
-    text-align: center;
-    align-items: center;
-    margin-top: 8vw;
+	width: 30vw;
+	height: 30vw;
+	text-align: center;
+	align-items: center;
+	margin-top: 8vw;
 }
 
 span {
-    text-align: center;
-    align-items: center;
+	text-align: center;
+	align-items: center;
 }
-
 
 /* #myDropzone {
     min-width: 50vw;
 } */
 
 .container {
-    display: flex;
+	display: flex;
 }
 
 .header {
-    padding: 1.5vw;
-    background: #95a472;
-    color: white;
-    font-size: 2vw;
+	padding: 1.5vw;
+	background: #95a472;
+	color: white;
+	font-size: 2vw;
 }
 
 button.identify {
-    width: 200px;
-    height: 200px;
-    font-size: 35px;
-    margin-left: 20vw;
-    margin-top: 10vw;
+	width: 200px;
+	height: 200px;
+	font-size: 35px;
+	margin-left: 20vw;
+	margin-top: 10vw;
 }
 
 .upload {
-    margin-left: 5.5vw;
+	margin-left: 5.5vw;
 }
 
 .dz-image {
-    width: 300px;
-    height: 300px;
+	width: 300px;
+	height: 300px;
 }
 
 .dropzone .dz-preview .dz-image {
@@ -64,9 +137,9 @@ button.identify {
 }
 
 .dropzone .dz-preview .dz-image img {
-    height: 300px;
+	height: 300px;
 }
 
 div.dz-default.dz-message {
-    margin-top: 150px;
+	margin-top: 150px;
 }

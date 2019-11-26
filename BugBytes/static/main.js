@@ -60,6 +60,7 @@ let com_names = document.querySelector('#com_names')
 let desc = document.querySelector('#desc')
 
 
+
 if (button) {
     button.addEventListener('click', function() {
         fetch('/api/species/3/', {
@@ -109,38 +110,32 @@ if (button) {
     })
 }
 
-// Image uploading
+let slideIndex = 1;
+showSlides(slideIndex);
 
-// function uploadImage(event) {
-//     var reader = new FileReader();
-//     var name = event.target.files[0].name;
-//     reader.addEventListener("load", function() {
-//         if (this.result && localStorage) {
-//             window.localStorage.setItem(name, this.result);
-//         } else {
-//             alert();
-//         }
-//     });
-//     reader.readAsDataURL(event.target.files[0]);
-// }
+// Setting a default so that it will move by itself 
+function plusSlides(n = 1) {
+    showSlides(slideIndex += n);
+}
 
-// insectImg = document.getElementById('insectPic');
-// imgData = getBase64Image(insectImg);
-// localStorage.setItem('imgData', imgData);
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
 
-// function getBase64Image() {
-//     let canvas = document.createElement('canvas');
-//     canvas.width = img.width;
-//     canvas.height = img.height;
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+}
 
-//     let ctx = canvas.getContext('2d');
-//     ctx.drawImage(img, 0, 0);
-
-//     let dataURL = canvas.toDataURL('image/png');
-
-//     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-// }
-
-// let dataImage = localStorage.getItem('imgData');
-// insectImg = document.getElementById('user-pic');
-// insectImg.src = "data:image/png;base64," + dataImage;
+window.setInterval(plusSlides, 5000)
