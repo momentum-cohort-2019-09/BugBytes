@@ -4,19 +4,28 @@
 </div>
 
 <div class="container">
-    <div class="upload">
-        <div class="dropzone" id="myDropzone"></div>
-        <div class="row">
-            <div class="input_box">
-                <label for="">
+    <div class="dragandid">
+        <div class="upload">
+            <div class="dropzone" id="myDropzone"></div>
+            <div class="row">
+                <div class="input_box">
+                    <label for="">
                 <!-- <input type="file" id="myFile" size="50" onchange="uploadImage(event)"> -->
                 </label>
+                </div>
             </div>
         </div>
+
+        <div class="identify">
+            <button class="identify"><a href="{% url 'view_species' tensorflow_id=2 %}">Identify!</a></button>
+        </div>
     </div>
-    <div class="identify">
-        <button class="identify"><a href="{% url 'view_species' tensorflow_id=0 %}">Identify!</a></button>
+
+    <div class="blurb">
+        <p>This is where the Main Purpose blurb will go</p>
     </div>
+
+
 </div>
 
 <!-- <div class="species_pics">
@@ -35,7 +44,6 @@
 </div> -->
 
 
-<!-- <script src="https://unpkg.com/dropzone"></script> -->
 <script src="{% static 'dropzone.js' %}"></script>
 <script src="https://unpkg.com/cropperjs"></script>
 
