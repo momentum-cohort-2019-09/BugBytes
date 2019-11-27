@@ -1,4 +1,3 @@
-
 insectImg = document.getElementById('insectPic');
 if (insectImg) {
     imgData = getBase64Image(insectImg);
@@ -29,10 +28,6 @@ if (insectImg) {
 // dropzone.options.maxFiles = dropzone.options.maxFiles - images.length;
 // console.log(sessionStorage)
 
-
-
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-}
 
 let dataImage = localStorage.getItem('imgData');
 insectImg = document.getElementById('user-pic');
@@ -104,27 +99,27 @@ if (button) {
                 desc.innerHTML = `Description: ${data.desc}`
             })
         fetch('/api/com_names/8', {
-            method: 'GET',
-            credentials: 'same-origin',
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-                'Accept': "application/json",
-                'Content-Type': "applicaton/json"
-            },
-        }).then(response => response.json())
+                method: 'GET',
+                credentials: 'same-origin',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Accept': "application/json",
+                    'Content-Type': "applicaton/json"
+                },
+            }).then(response => response.json())
             .then(data => {
                 console.log(data.name)
                 com_names.innerHTML = `Common Names: ${data.name}`
             })
         fetch('/api/photos/26', {
-            method: 'GET',
-            credentials: 'same-origin',
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-                'Accept': "application/json",
-                'Content-Type': "applicaton/json"
-            },
-        }).then(response => response.json())
+                method: 'GET',
+                credentials: 'same-origin',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Accept': "application/json",
+                    'Content-Type': "applicaton/json"
+                },
+            }).then(response => response.json())
             .then(data => {
                 console.log(data.image)
                 image.innerHTML = `<img src="${data.image}" alt="${data.tax_name}">`
@@ -164,3 +159,10 @@ showSlides(slideIndex);
 
 
 window.setInterval(plusSlides, 5000)
+
+
+// Tensorflow Stuff
+
+import * as tf from '@tensorflow/tfjs';
+
+const model = await tf.loadLayersModel('https://foo.bar/tfjs_artifacts/model.json');
