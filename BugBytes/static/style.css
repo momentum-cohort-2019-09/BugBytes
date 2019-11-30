@@ -22,6 +22,11 @@
     display: none;
 }
 
+img.bug_image {
+    height: 200px;
+    margin: auto;
+}
+
 .image {
     width: 100%;
 }
