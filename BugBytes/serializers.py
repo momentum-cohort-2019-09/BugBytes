@@ -17,3 +17,5 @@ class PhotosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Photos
         fields = ['species', 'image', 'id']
+
+

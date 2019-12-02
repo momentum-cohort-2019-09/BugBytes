@@ -25,4 +25,3 @@ class Com_Names(models.Model):
 class Photos(models.Model):
     species = models.ForeignKey(to='Species', related_name='photos', on_delete=models.CASCADE)
     image = models.ImageField(blank=True, upload_to='images/')
-

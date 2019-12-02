@@ -4,25 +4,50 @@
 </div>
 
 <div class="container">
-    <div class="upload">
-        <div class="dropzone" id="myDropzone"></div>
-        <div class="row">
-            <div class="input_box">
-                <label for="">
-                <!-- <input type="file" id="myFile" size="50" onchange="uploadImage(event)"> -->
+    <div class="dragandid">
+        <div class="upload">
+            <div class="dropzone" id="myDropzone"></div>
+            <div class="row">
+                <div class="input_box">
+                    <label for="">
                 </label>
+                </div>
             </div>
         </div>
+
+        <div class="identify">
+            <button class="identify"><a href="{% url 'view_species' tensorflow_id=0 %}">Identify!</a></button>
+        </div>
     </div>
+
     <canvas style="display: none;"id="myCanvas" width="175" height="175"></canvas>
     <div class="identify">
        <button data-modelJson="{% static 'machine' %}" class="identify"><a href="{% url 'view_species' tensorflow_id=1 %}">Identify!</a></button>
     </div>
 
+    <div class="blurb">
+        <p>This is where the Main Purpose blurb will go</p>
+    </div>
+
+
 </div>
 
+<!-- <div class="species_pics">
+    <div><img class="species_pics" src="https://images-na.ssl-images-amazon.com/images/I/21y1sp0r0aL.jpg" alt="Achecta domesticus">Achecta domesticus</div>
+    <div><img class="species_pics" src="https://bugguide.net/images/raw/VHP/HLR/VHPHLR6HJH6HBHGH1HPH3HXHDH8HBH6HAHRL9Z4L3H5L9ZILWZ4LHRGHVHMHOH0L4ZSL1H7HOHWH.jpg" alt="Conocephalus Brevipennis">Conocephalus brevipennis</div>
+    <div><img class="species_pics" src="https://i.ytimg.com/vi/Gj5eQDqhXL0/hqdefault.jpg" alt="Dissosteira carolina">Dissosteira carolina</div>
+    <div><img class="species_pics" src="https://bugguide.net/images/cache/MLW/Z4L/MLWZ4L9ZSLFH5HVH8HZR6H3HPH1H5HDH4HBHMHAHSLCHXHTHIHOHRLOHLLCHXH1H7H1H5H5ZQL2ZXHAHMHTH7HBH5H.jpg" alt="Melanoplus bivittatus">Melanoplus bivittatus</div>
+    <div><img class="species_pics" src="https://idtools.org/id/grasshoppers/images/fs_images/M_differentialis_female2_o.jpg" alt="Melanoplus differentialis">Melanoplus differentialis</div>
+    <div><img class="species_pics" src="https://idtools.org/id/grasshoppers/images/fs_images/M_femurrubrum_female_o.jpg" alt="Melanoplus femurrubrum">Melanoplus femurrubrum</div>
+    <div><img class="species_pics" src="https://bugguide.net/images/cache/TLI/ZAL/TLIZAL7Z6L6ROZ8RLHKRCZ0ROZKROZ8RLH4RVL7ZKHIRTZZZOLIZOL8RALKZDLKZOLKZAL6R3ZFLPLIRDZSR6LZZ3ZMR.jpg" alt="Melanoplus punctulatus">Melanoplus punctulatus</div>
+    <div><img class="species_pics" src="https://bugguide.net/images/cache/JKW/RRQ/JKWRRQ9R7QDQN0K0903Q70H020H0P0CRIQL0E0L0IQTR60K0P0DRE0S090TR20H0W0FR60TRMQR0MQCRKQORKQCRU0.jpg" alt="Microcentrum rhombifolium">Microcentrum rhombifolium</div>
+    <div><img class="species_pics" src="https://bugguide.net/images/cache/LH5/R0H/LH5R0H4R3Z0ZWLMZALMZNLHZ9LRZ9L7R2L0RTZ3L2LXROZIR3ZSRHHXZULFLCZQRWLMZSHXRPLRZDLIZDLXZOLSZ6LJL.jpg" alt="Neocurtilla hexadactyla">Neocurtilla hexadactyla</div>
+    <div><img class="species_pics" src="http://songsofinsects.com/wp-content/uploads/insect_musicians_neox-punct_LE_DIGI.jpg" alt="Neoxabea bipunctata">Neoxabea bipunctata</div>
+    <div><img class="species_pics" src="https://bugguide.net/images/cache/VLK/ZCL/VLKZCLSZ9LGRJZIROZ8RHHERSH6RAL7ZQHGRTLLZOL5RSHERBLGRTLQZCLSZLH4RZHSZTLSZQHIZBL0ZSHPR0HSZVLKZ.jpg" alt="Phyllopalpus pulchellus">Phyllopalpus pulchellus</div>
+    <div><img class="species_pics" src="https://bugguide.net/images/raw/LZ6/LYL/LZ6LYL9LHZNLRZELMROZFLBLSZLH2RSHPR0HERJZRZELLZNL7R9LXZRH8ROL7Z9LFLEL7R6LXRWLHZ.jpg" alt="Romalea microptera">Romalea microptera</div>
+</div> -->
 
-<!-- <script src="https://unpkg.com/dropzone"></script> -->
+
 <script src="{% static 'dropzone.js' %}"></script>
 <script src="https://unpkg.com/cropperjs"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
