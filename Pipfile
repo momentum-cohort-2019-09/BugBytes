@@ -15,6 +15,7 @@ gunicorn = "*"
 tensorflowjs = "*"
 django-cors-headers = "*"
 tensorflowjs-converter = "*"
+tensorflow-converter = "*"
 
 [requires]
 python_version = "3.7"

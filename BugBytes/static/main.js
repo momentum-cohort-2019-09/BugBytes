@@ -18,6 +18,22 @@ let identify = document.querySelector('.identify')
 if (identify) {
     identify.addEventListener('click', async function (data) {
         event.preventDefault()
+
+        function indexOfMax(arr) {
+
+            var max = arr[0];
+            var maxIndex = 0;
+
+            for (var i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    maxIndex = i;
+                    max = arr[i];
+                }
+            }
+
+            return maxIndex;
+        }
+
         let user_pic = document.querySelector('.dz-image').children[0]
         console.log('User Image: ', user_pic)
 
@@ -56,25 +72,23 @@ if (identify) {
         // Our structure is [null, 200, 200, 1] in the model
         // Because there is a null, it equates to 0 where it needs to be 40000
         let results = prediction.dataSync()
-        console.log('This is your Results: ', prediction.dataSync())
+        let predictionDigit = indexOfMax(results)
 
-        // What are these?!
-        console.log('This is your prediction below: ')
+        console.log('This is your Results: ', results, 'Prediction Digit: ', predictionDigit)
         // Must be separated. `.print` does strange things
-        prediction.print(true)
-        let answers = ["dissosteira carolina", "melanoplus bivittatus", "melanoplus differentialis", "phyllopalpus pulchellus", "romalea microptera"]
-
         // When the model works, the 0 will be the result from the prediction
         // Just building the skeleton now
         // This is a weird way to do this and I am too tired to keep going 
-        let info = await fetch(`bugbytes/1/view_species`, {
+
+        fetch(`bugbytes/${predictionDigit}/view_species`, {
             method: 'GET',
         }).then(response => response.text())
             .then(data => {
                 let html = document.querySelector('html')
+                console.log(html)
                 html.innerHTML = data
             })
-        console.log(info)
+        console.log('Post Fetch Request')
     })
 
 
