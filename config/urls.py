@@ -31,7 +31,8 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('bugbytes/<int:tensorflow_id>/view_species',
          views.view_species, name='view_species'),
-    path('', views.landing, name='landing')
+    path('', views.landing, name='landing'),
+    path('model_json/', views.model_json, name='model_json'),
 ]
 
 if settings.DEBUG:  # new

@@ -1,6 +1,6 @@
 :root {
 	--lightest-green: #ddfcad;
-	--light-green: #c8e087;
+	--light-green: #c0d486;
 	--green: #95a472;
 	--light-grey: #82846d;
 	--dark-grey: #646165;
@@ -123,7 +123,7 @@ img {
 /* ----------------- SPECIES PAGE END ----------------- */
 
 body {
-	background-color: #c8e087;
+	background-color: var(--light-grey);
 }
 
 h1 {
@@ -176,9 +176,9 @@ button.identify {
 }
 
 .dropzone .dz-preview .dz-image {
-    width: 300px;
-    height: 300px;
-    margin-top: 1.5vw;
+	width: 300px;
+	height: 300px;
+	margin-top: 1.5vw;
 }
 
 .dropzone .dz-preview .dz-image img {

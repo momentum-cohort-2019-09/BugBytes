@@ -12,6 +12,9 @@ psycopg2 = "*"
 pillow = "*"
 django-heroku = "*"
 gunicorn = "*"
+tensorflowjs = "*"
+django-cors-headers = "*"
+tensorflowjs-converter = "*"
 
 [requires]
 python_version = "3.7"

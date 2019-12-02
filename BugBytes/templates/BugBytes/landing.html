@@ -14,8 +14,9 @@
             </div>
         </div>
     </div>
+    <canvas style="display: none;"id="myCanvas" width="175" height="175"></canvas>
     <div class="identify">
-        <button class="identify">Identify!</button>
+       <button data-modelJson="{% static 'machine' %}" class="identify"><a href="{% url 'view_species' tensorflow_id=1 %}">Identify!</a></button>
     </div>
 
 </div>
@@ -24,6 +25,7 @@
 <!-- <script src="https://unpkg.com/dropzone"></script> -->
 <script src="{% static 'dropzone.js' %}"></script>
 <script src="https://unpkg.com/cropperjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
 
 <script>
     Dropzone.options.myDropzone = {
@@ -32,7 +34,6 @@
 
             // Create Dropzone reference for use in confirm button click handler
             var myDropZone = this;
-
             // Create the image editor overlay
             var editor = document.createElement('div');
             editor.setAttribute('id', 'insectPic')
@@ -56,9 +57,10 @@
             buttonConfirm.addEventListener('click', function() {
                 // Get the canvas with image data from Cropper.js
                 var canvas = cropper.getCroppedCanvas({
-                    width: 256,
-                    height: 256
+                    width: 175,
+                    height: 175
                 });
+
                 // Turn the canvas into a Blob (file object without a name)
                 canvas.toBlob(function(blob) {
 
@@ -74,39 +76,22 @@
                             // Update the Dropzone file thumbnail
                             myDropZone.emit('thumbnail', file, dataURL);
                             // Return the file to Dropzone
+                            sessionStorage.setItem('user_pic', blob.dataURL)
+                            
                             done(blob);
-
-                            var images = [];
-                            myDropZone.getQueuedFiles().forEach(function(file) {
-                                let image = {
-                                    dataURL: file.dataURL,
-                                    name: file.name,
-                                    type: file.type,
-                                    size: file.size,
-                                };
-                                images.push(image);
-                            });
-                            sessionStorage.setItem("images", JSON.stringify(images));
-
-                            var images = JSON.parse(sessionStorage.getItem('images'));
-                            images.forEach(function(image) {
-                                dropzone.files.push(image);
-                                dropzone.emit("addedfile", image);
-                                dropzone.emit("thumbnail", image, image.dataURL);
-                                dropzone.emit("complete", image);
-                            });
-                            myDropZone.options.maxFiles = myDropZone.options.maxFiles - images.length;
-                            console.log(sessionStorage)
                         });
+                    
                     done(blob);
+                    
                 });
 
                 // Remove the editor from the view
                 document.body.removeChild(editor);
+
             });
 
             // Create an image node for Cropper.js
-            var image = new Image();
+            const image = new Image();
             image.src = URL.createObjectURL(file);
             editor.appendChild(image);
 
