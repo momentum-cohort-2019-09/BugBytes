@@ -53,21 +53,21 @@
 
                     <div class="fade">
                         {% if species.tensorflow_id == 0 %}
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/VZ5L9Z4LGZ9H1H5HAHGHVHMHCHHL6ZIH6Z4HDHKLEZ5HBHLL1HXHTH8H2Z7H2Z0L2ZMH4Z7LHR2HAZ8LW_fMP15gZ.jpg" alt="{{species.tax_name}}">
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/GZHLPZZLVZIHRREHZREHRRUHJHPHJHNHZRUH3H9HVZPHYH7LVZMLUZGL3HGLWZ4LZRNHFHXLAZ4L3H5L9_SpwiJlC.jpg" alt="{{species.tax_name}}">
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/Carolina_Grasshopper.jpg" alt="{{species.tax_name}}">{% elif species.tensorflow_id == 1 %}
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/SROZ7R3Z0RHH2RBLFL9LSR9L7ZOLQZEL3L6LZZULHZULRZJZKR2LLZNLLZPLKZEL3LDZ7R3ZRZDLQZ.jpg" alt="{{species.tax_name}}">
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/LZOL0ZCLHZNLRZ9L0R9LJLVLYL2L7RDZXR2L3LTZ0RJZRZ2LHZDZ4RVLERLHXZQH6RZHERRHKZTLMZLH.jpg" alt="{{species.tax_name}}">
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/HLGZKL8Z5LVHUHCH9H3HUHZRWHLRPHRR4H1HPHUZXLNZLLGZZLOH0LVHEHUZ9H1Z2HNZEHJH7LAZ2HFH4_ZpqCTsO.jpg" alt="{{species.tax_name}}">{% elif species.tensorflow_id == 2 %}
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/GQA0PQ10VQPK4KTKGKTKKK9KGQT02Q2KZKA05QWK5KOKNQF0IKAKNQHSXKCKNQ10SKT00KEKPQO04QUKPQB0EQ2K.jpg" alt="{{species.tax_name}}">
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/D0BQRS1QLSUQRSBQC02Q2KQKB00KO0PQEKEQD0AQRS9QB09QRS1QY07KAKXKY0MKOK4KJ0IKEKIKJ0.jpg" alt="{{species.tax_name}}">
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/0RCZIROZPRPL7ZULJLWLJLWLLZ6LYLYZRZELLZELHZTZ7RELZZFZLZOL5RHHIZBLKZDLRZYZPRZHSZOLM_83M5sK0.jpg" alt="{{species.tax_name}}">{% elif species.tensorflow_id == 3 %}
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/40FQM0YQE01R0QURYKBRLQARYKURZQBR3KNRHQWRYKARRQARZQTQHQ3R60TR90FRE0Q0503QM0YQI0WRYKNRKQTR.jpg" alt="{{species.tax_name}}">
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/QHGRKH6RHH4RZHGRDZJLWL7RDZ3LNLRZ9LJLELLZ3ZKR6LYL6LFLELIRKHERDLHZELJLFZFLOZLZFZ.jpg" alt="{{species.tax_name}}">
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/QKWKRK9K7KD0NQY0VQHSBQF09QF0AQRS6QC0BQLSVQ1K4KAKVQCK0KD0PQ104QPK0KD0PQ9K5QY0BQOKU_98iu3fl.jpg" alt="{{species.tax_name}}">{% elif species.tensorflow_id == 4 %}
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/2QD08QT0WQWKXKAKMKEKIKVKIK1KNQ1KZK2K0KA02QRS6Q2KHKNK5QA02QT0HK9K5QY0AQVKLKWK8K1KI_OSooNkH.jpg" alt="{{species.tax_name}}">
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/DQ70JQI0Q0JK3RRQBR7QJRZQNRX0BRZQWRYKWR3KTQ3K9RLQ9RSQS0G000U0L0I09R0QL090YRKQFRSQCRFKAR.jpg" alt="{{species.tax_name}}">
-                        <img class="bug_image slide" src="http://127.0.0.1:8000/media/images/DR3KURFKBRYKWR50K0KQFRIQ00KQYRMQS0N0Z060Z07QDR90K090H0KQJRMQFRXQH0U03RHQNRM0VR.jpg" alt="{{species.tax_name}}">{% endif %}
+                        <img class="bug_image slide" src="{% static 'images/VZ5L9Z4LGZ9H1H5HAHGHVHMHCHHL6ZIH6Z4HDHKLEZ5HBHLL1HXHTH8H2Z7H2Z0L2ZMH4Z7LHR2HAZ8LW_fMP15gZ.jpg' %}" alt="{{species.tax_name}}">
+                        <img class="bug_image slide" src="{% static 'images/GZHLPZZLVZIHRREHZREHRRUHJHPHJHNHZRUH3H9HVZPHYH7LVZMLUZGL3HGLWZ4LZRNHFHXLAZ4L3H5L9_SpwiJlC.jpg' %}" alt="{{species.tax_name}}">
+                        <img class="bug_image slide" src="{% static 'images/Carolina_Grasshopper.jpg' %}" alt="{{species.tax_name}}">{% elif species.tensorflow_id == 1 %}
+                        <img class="bug_image slide" src="{% static 'images/SROZ7R3Z0RHH2RBLFL9LSR9L7ZOLQZEL3L6LZZULHZULRZJZKR2LLZNLLZPLKZEL3LDZ7R3ZRZDLQZ.jpg' %}" alt="{{species.tax_name}}">
+                        <img class="bug_image slide" src="{% static 'images/LZOL0ZCLHZNLRZ9L0R9LJLVLYL2L7RDZXR2L3LTZ0RJZRZ2LHZDZ4RVLERLHXZQH6RZHERRHKZTLMZLH.jpg' %}" alt="{{species.tax_name}}">
+                        <img class="bug_image slide" src="{% static 'images/HLGZKL8Z5LVHUHCH9H3HUHZRWHLRPHRR4H1HPHUZXLNZLLGZZLOH0LVHEHUZ9H1Z2HNZEHJH7LAZ2HFH4_ZpqCTsO.jpg' %}" alt="{{species.tax_name}}">{% elif species.tensorflow_id == 2 %}
+                        <img class="bug_image slide" src="{% static 'images/GQA0PQ10VQPK4KTKGKTKKK9KGQT02Q2KZKA05QWK5KOKNQF0IKAKNQHSXKCKNQ10SKT00KEKPQO04QUKPQB0EQ2K.jpg' %}" alt="{{species.tax_name}}">
+                        <img class="bug_image slide" src="{% static 'images/D0BQRS1QLSUQRSBQC02Q2KQKB00KO0PQEKEQD0AQRS9QB09QRS1QY07KAKXKY0MKOK4KJ0IKEKIKJ0.jpg' %}" alt="{{species.tax_name}}">
+                        <img class="bug_image slide" src="{% static 'images/0RCZIROZPRPL7ZULJLWLJLWLLZ6LYLYZRZELLZELHZTZ7RELZZFZLZOL5RHHIZBLKZDLRZYZPRZHSZOLM_83M5sK0.jpg' %}" alt="{{species.tax_name}}">{% elif species.tensorflow_id == 3 %}
+                        <img class="bug_image slide" src="{% static 'images/40FQM0YQE01R0QURYKBRLQARYKURZQBR3KNRHQWRYKARRQARZQTQHQ3R60TR90FRE0Q0503QM0YQI0WRYKNRKQTR.jpg' %}" alt="{{species.tax_name}}">
+                        <img class="bug_image slide" src="{% static 'images/QHGRKH6RHH4RZHGRDZJLWL7RDZ3LNLRZ9LJLELLZ3ZKR6LYL6LFLELIRKHERDLHZELJLFZFLOZLZFZ.jpg' %}" alt="{{species.tax_name}}">
+                        <img class="bug_image slide" src="{% static 'images/QKWKRK9K7KD0NQY0VQHSBQF09QF0AQRS6QC0BQLSVQ1K4KAKVQCK0KD0PQ104QPK0KD0PQ9K5QY0BQOKU_98iu3fl.jpg' %}" alt="{{species.tax_name}}">{% elif species.tensorflow_id == 4 %}
+                        <img class="bug_image slide" src="{% static 'images/2QD08QT0WQWKXKAKMKEKIKVKIK1KNQ1KZK2K0KA02QRS6Q2KHKNK5QA02QT0HK9K5QY0AQVKLKWK8K1KI_OSooNkH.jpg' %}" alt="{{species.tax_name}}">
+                        <img class="bug_image slide" src="{% static 'images/DQ70JQI0Q0JK3RRQBR7QJRZQNRX0BRZQWRYKWR3KTQ3K9RLQ9RSQS0G000U0L0I09R0QL090YRKQFRSQCRFKAR.jpg' %}" alt="{{species.tax_name}}">
+                        <img class="bug_image slide" src="{% static 'images/DR3KURFKBRYKWR50K0KQFRIQ00KQYRMQS0N0Z060Z07QDR90K090H0KQJRMQFRXQH0U03RHQNRM0VR.jpg' %}" alt="{{species.tax_name}}">{% endif %}
                     </div>
                 </div>
                 <br>
