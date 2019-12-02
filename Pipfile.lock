@@ -1,9 +1,7 @@
 {
     "_meta": {
         "hash": {
-
-            "sha256": "53111b9a32aff438cf17f0045494340fa8353c323851b37ed844f7d02c46ae1d"
-
+            "sha256": "cead1f923819af3541d9511293819e58a103cf679d2a603dff06a69824b43d44"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -24,6 +22,13 @@
             ],
             "version": "==0.8.1"
         },
+        "asgiref": {
+            "hashes": [
+                "sha256:7e06d934a7718bf3975acbf87780ba678957b87c7adc056f13b6215d610695a0",
+                "sha256:ea448f92fc35a0ef4b1508f53a04c4670255a3f33d22a81c8fc9c872036adbe5"
+            ],
+            "version": "==3.2.3"
+        },
         "astor": {
             "hashes": [
                 "sha256:0e41295809baf43ae8303350e031aff81ae52189b6f881f36d623fa8b2f1960e",
@@ -40,11 +45,11 @@
         },
         "django": {
             "hashes": [
-                "sha256:16040e1288c6c9f68c6da2fe75ebde83c0a158f6f5d54f4c5177b0c1478c5b86",
-                "sha256:89c2007ca4fa5b351a51a279eccff298520783b713bf28efb89dfb81c80ea49b"
+                "sha256:6f857bd4e574442ba35a7172f1397b303167dae964cf18e53db5e85fe248d000",
+                "sha256:d98c9b6e5eed147bc51f47c014ff6826bd1ab50b166956776ee13db5a58804ae"
             ],
             "index": "pypi",
-            "version": "==2.2.7"
+            "version": "==3.0"
         },
         "django-cors-headers": {
             "hashes": [
@@ -321,10 +326,10 @@
         },
         "pygments": {
             "hashes": [
-                "sha256:83ec6c6133ca6b529b7ff5aa826328fd14b5bb02a58c37f4f06384e96a0f94ab",
-                "sha256:b7949de3d396836085fea596998b135a22610bbcc4f2abfe9e448e44cbc58388"
+                "sha256:2a3fe295e54a20164a9df49c75fa58526d3be48e14aceba6d6b1e8ac0bfd6f1b",
+                "sha256:98c8aa5a9f778fcd1026a17361ddaf7330d1b7c62ae97c3bb0ae73e0b9b6b0fe"
             ],
-            "version": "==2.5.1"
+            "version": "==2.5.2"
         },
         "pyinquirer": {
             "hashes": [
@@ -392,6 +397,7 @@
                 "sha256:af57e0e16adb4d6ccd387954c1d70e34cc4925b74da9135d2b83ca7d3dd9d102",
                 "sha256:d1694e25887bc0d0c31d6c7d9c92c8bf9e0499085c7e5a9dbaacf675c44027a8"
             ],
+            "index": "pypi",
             "version": "==1.15.0"
         },
         "tensorflow-estimator": {
