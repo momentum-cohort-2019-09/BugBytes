@@ -12,6 +12,7 @@ psycopg2 = "*"
 pillow = "*"
 django-heroku = "*"
 gunicorn = "*"
+tensorflowjs = "*"
 
 [requires]
 python_version = "3.7"
