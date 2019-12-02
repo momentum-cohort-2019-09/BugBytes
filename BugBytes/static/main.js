@@ -1,12 +1,11 @@
-// const model = tf.loadLayersModel('file://static/machine/model.json')
-// const model = tf.loadLayersModel('https://my-json-server.typicode.com/ccrecorder/fakemodelapi/model')
-// console.log('This is your model', model)
 
 insectImg = document.getElementById('insectPic');
 if (insectImg) {
     imgData = getBase64Image(insectImg);
     localStorage.setItem('imgData', imgData);
 }
+
+
 
 let dataImage = localStorage.getItem('imgData');
 insectImg = document.getElementById('user-pic');
@@ -134,6 +133,7 @@ let com_names = document.querySelector('#com_names')
 let desc = document.querySelector('#desc')
 
 
+
 if (button) {
     button.addEventListener('click', function () {
         fetch('/api/species/3/', {
@@ -183,6 +183,7 @@ if (button) {
     })
 }
 
+
 let carousel = document.querySelector('.carousel')
 if (carousel) {
     let slideIndex = 1;
@@ -216,6 +217,7 @@ if (carousel) {
 
 
     window.setInterval(plusSlides, 5000)
+
 
 
     fetch('/api/')

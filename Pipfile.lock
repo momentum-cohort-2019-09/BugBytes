@@ -1,7 +1,9 @@
 {
     "_meta": {
         "hash": {
+
             "sha256": "53111b9a32aff438cf17f0045494340fa8353c323851b37ed844f7d02c46ae1d"
+
         },
         "pipfile-spec": 6,
         "requires": {
